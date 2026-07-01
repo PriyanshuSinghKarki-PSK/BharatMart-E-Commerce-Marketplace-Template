@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BharatMart – India's Trusted Online Shopping Destination</title>
+<link rel="icon" type="image/png" href="./assets/logo/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader-logo">BharatMart</div>
+  <div class="loader-bar"><div class="loader-bar-inner"></div></div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container"></div>
+
+<!-- BACK TO TOP -->
+<button id="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- NAV OVERLAY -->
+<div id="nav-overlay" onclick="closeMobileNav()"></div>
+
+<!-- MOBILE NAV -->
+<nav id="mobile-nav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  <div class="mobile-nav-logo">BharatMart</div>
+  <a href="#hero" class="mobile-nav-link" onclick="closeMobileNav()">🏠 Home</a>
+  <a href="#categories" class="mobile-nav-link" onclick="closeMobileNav()">📂 Categories</a>
+  <a href="#products" class="mobile-nav-link" onclick="closeMobileNav()">🛍️ Products</a>
+  <a href="#flash" class="mobile-nav-link" onclick="closeMobileNav()">⚡ Flash Sale</a>
+  <a href="#festival" class="mobile-nav-link" onclick="closeMobileNav()">🎉 Festival Offers</a>
+  <a href="#reviews" class="mobile-nav-link" onclick="closeMobileNav()">⭐ Reviews</a>
+  <a href="#brands" class="mobile-nav-link" onclick="closeMobileNav()">🏆 Brands</a>
+</nav>
+
+<!-- NAVBAR -->
+<header id="navbar">
+  <div class="nav-inner">
+    <button class="mobile-menu-btn" onclick="openMobileNav()">☰</button>
+    <a href="#hero" class="nav-logo">Bharat<span>Mart</span></a>
+    <div class="nav-search">
+      <select class="search-cat" id="nav-cat">
+        <option>All</option>
+        <option>Electronics</option>
+        <option>Fashion</option>
+        <option>Mobiles</option>
+        <option>Home</option>
+        <option>Beauty</option>
+      </select>
+      <input type="text" class="search-input" id="nav-search-input" placeholder="Search for products, brands…" autocomplete="off">
+      <button class="search-btn" onclick="doSearch()">🔍</button>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-btn" onclick="openCart()" title="Cart">
+        🛒 <span class="label">Cart</span>
+        <span class="badge" id="cart-badge">0</span>
+      </button>
+      <button class="nav-btn" onclick="showToast('Wishlist coming soon!','🤍')" title="Wishlist">
+        🤍 <span class="label">Wishlist</span>
+        <span class="badge" id="wishlist-badge">0</span>
+      </button>
+      <button class="nav-btn" onclick="showToast('Sign in to view your account!','👤')" title="Profile">
+        👤 <span class="label">Account</span>
+      </button>
+      <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+    </div>
+  </div>
+</header>
+
+<!-- CATEGORIES BAR -->
+<div class="cat-bar">
+  <div class="cat-bar-inner">
+    <a href="#categories" class="cat-link">📱 Mobiles</a>
+    <a href="#categories" class="cat-link">💻 Electronics</a>
+    <a href="#categories" class="cat-link">👔 Fashion</a>
+    <a href="#categories" class="cat-link">🏠 Home & Kitchen</a>
+    <a href="#categories" class="cat-link">💄 Beauty</a>
+    <a href="#categories" class="cat-link">🥦 Grocery</a>
+    <a href="#categories" class="cat-link">📚 Books</a>
+    <a href="#categories" class="cat-link">🏋️ Sports</a>
+    <a href="#flash" class="cat-link" style="color:#FFD700;font-weight:700;">⚡ Flash Sale</a>
+    <a href="#festival" class="cat-link">🎉 Festival Deals</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-blobs">
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <div class="hero-blob blob3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-eyebrow">New Arrivals Every Day</div>
+      <h1 class="hero-h1">India's <span>Trusted</span> Online Shopping Destination</h1>
+      <p class="hero-sub">Shop from 10 Crore+ products across every category. Best prices, guaranteed delivery, and unbeatable deals every single day.</p>
+      <div class="hero-search">
+        <select class="hero-search-cat">
+          <option>All</option>
+          <option>Electronics</option>
+          <option>Fashion</option>
+          <option>Mobiles</option>
+        </select>
+        <input type="text" class="hero-search-input" id="hero-search" placeholder="Search for anything…" autocomplete="off">
+        <button class="hero-search-btn" onclick="doSearch()">Search</button>
+      </div>
+      <div class="hero-btns">
+        <a href="#products" class="btn-hero-primary">🛍️ Shop Now</a>
+        <a href="#flash" class="btn-hero-secondary">⚡ Today's Deals</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">10Cr+</div>
+          <div class="hero-stat-label">Products</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">5Cr+</div>
+          <div class="hero-stat-label">Happy Customers</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">19000+</div>
+          <div class="hero-stat-label">Cities Delivered</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.8★</div>
+          <div class="hero-stat-label">App Rating</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-main-card hero-card-float">
+        <div class="hero-card-img"><img src="./assets/images/iphone.jpg" alt="Iphone 17 Pro" style="width: 100%; height: 100%; object-fit:contain;"></div>
+        <div class="hero-card-title">IPhone 17 Pro</div>
+        <div class="hero-card-orig">₹147,999</div>
+        <div class="hero-card-price">₹124,999</div>
+        <div class="hero-card-badge">21% OFF · Free Delivery</div>
+      </div>
+      <div class="hero-floating-tags">
+        <div class="hero-tag"><span class="hero-tag-icon">🚀</span> Free & Fast Delivery</div>
+        <div class="hero-tag"><span class="hero-tag-icon">🔒</span> Secure Payments</div>
+        <div class="hero-tag"><span class="hero-tag-icon">↩️</span> Easy Returns</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories" style="padding:80px 0;background:var(--bg);">
+  <div class="section">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Browse By Category</div>
+      <h2 class="section-title">Shop By Category</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="categories-grid reveal">
+      <div class="cat-card" onclick="filterProducts('Electronics')">
+        <div class="cat-icon">💻</div>
+        <div class="cat-name">Electronics</div>
+        <div class="cat-count">2.4L+ items</div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('Fashion')">
+        <div class="cat-icon">👗</div>
+        <div class="cat-name">Fashion</div>
+        <div class="cat-count">5.2L+ items</div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('Mobiles')">
+        <div class="cat-icon">📱</div>
+        <div class="cat-name">Mobile Phones</div>
+        <div class="cat-count">84K+ items</div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('Home')">
+        <div class="cat-icon">🏠</div>
+        <div class="cat-name">Home & Kitchen</div>
+        <div class="cat-count">3.1L+ items</div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('Beauty')">
+        <div class="cat-icon">💄</div>
+        <div class="cat-name">Beauty & Care</div>
+        <div class="cat-count">1.8L+ items</div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('Grocery')">
+        <div class="cat-icon">🥦</div>
+        <div class="cat-name">Grocery</div>
+        <div class="cat-count">48K+ items</div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('Books')">
+        <div class="cat-icon">📚</div>
+        <div class="cat-name">Books</div>
+        <div class="cat-count">62K+ items</div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('Sports')">
+        <div class="cat-icon">🏋️</div>
+        <div class="cat-name">Sports & Fitness</div>
+        <div class="cat-count">96K+ items</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLASH SALE -->
+<section class="flash-sale-section" id="flash">
+  <div class="flash-inner">
+    <div class="flash-header reveal">
+      <div class="flash-title-group">
+        <div class="flash-badge">⚡ FLASH SALE</div>
+        <h2 class="flash-title">Today's Lightning Deals</h2>
+      </div>
+      <div class="countdown">
+        <div class="countdown-unit"><span class="countdown-num" id="cd-h">00</span><span class="countdown-label">Hours</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-m">00</span><span class="countdown-label">Mins</span></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-s">00</span><span class="countdown-label">Secs</span></div>
+      </div>
+    </div>
+    <div class="flash-products" id="flash-products">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section id="products" style="background:var(--bg); padding-bottom:80px;">
+  <div class="section">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Curated For You</div>
+      <h2 class="section-title">Featured Products</h2>
+      <p class="section-sub">Discover the best deals, top brands, and new arrivals handpicked for you.</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="products-filter reveal" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Electronics">Electronics</button>
+      <button class="filter-btn" data-filter="Fashion">Fashion</button>
+      <button class="filter-btn" data-filter="Mobiles">Mobiles</button>
+      <button class="filter-btn" data-filter="Home">Home & Kitchen</button>
+      <button class="filter-btn" data-filter="Beauty">Beauty</button>
+      <button class="filter-btn" data-filter="Sports">Sports</button>
+    </div>
+    <div class="products-grid" id="products-grid">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands" style="padding:60px 0; background: var(--bg); overflow:hidden;">
+  <div style="max-width:1400px;margin:0 auto;padding:0 24px;">
+    <div class="section-header reveal" style="margin-bottom:32px;">
+      <div class="section-eyebrow">Trusted Names</div>
+      <h2 class="section-title">Top Indian Brands</h2>
+      <div class="section-divider"></div>
+    </div>
+  </div>
+  <div class="brands-track">
+    <div class="brands-slide" id="brands-slide-1">
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/samsung.webp" alt="Samsung"></span><span class="brand-name">Samsung</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/oneplus.webp" alt="OnePlus"></span><span class="brand-name">OnePlus</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/boAt.webp" alt="boAt"></span><span class="brand-name">boAt</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/noise.jpg" alt="Noise"></span><span class="brand-name">Noise</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/puma.webp" alt="Puma"></span><span class="brand-name">Puma</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/titan.webp" alt="Titan"></span><span class="brand-name">Titan</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/apple.webp" alt="Apple"></span><span class="brand-name">Apple</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/nike.webp" alt="Nike"></span><span class="brand-name">Nike</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/havells.webp" alt="Havells"></span><span class="brand-name">Havells</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/himalaya.webp" alt="Himalaya"></span><span class="brand-name">Himalaya</span></div>
+    </div>
+    <div class="brands-slide" id="brands-slide-2" aria-hidden="true">
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/samsung.webp" alt="Samsung"></span><span class="brand-name">Samsung</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/oneplus.webp" alt="OnePlus"></span><span class="brand-name">OnePlus</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/boAt.webp" alt="boAt"></span><span class="brand-name">boAt</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/noise.jpg" alt="Noise"></span><span class="brand-name">Noise</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/puma.webp" alt="Puma"></span><span class="brand-name">Puma</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/titan.webp" alt="Titan"></span><span class="brand-name">Titan</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/apple.webp" alt="Apple"></span><span class="brand-name">Apple</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/nike.webp" alt="Nike"></span><span class="brand-name">Nike</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/havells.webp" alt="Havells"></span><span class="brand-name">Havells</span></div>
+      <div class="brand-card"><span class="brand-icon"><img src="./assets/company_logo/himalaya.webp" alt="Himalaya"></span><span class="brand-name">Himalaya</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FESTIVAL OFFERS -->
+<section class="festival-section" id="festival">
+  <div class="section">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Seasonal Celebrations</div>
+      <h2 class="section-title">Special Indian Festival Offers</h2>
+      <p class="section-sub">Celebrate India's rich festivals with unbeatable discounts and curated collections.</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="festival-grid reveal">
+      <div class="festival-card">
+        <div class="festival-bg" style="font-size:6rem;"><img src="./assets/images/diwali.jpg" alt="Diwali Sale" style="width: 100%; height: 100%; object-fit: cover;"></div>
+        <div class="festival-overlay">
+          <div class="festival-label">Biggest Sale of The Year</div>
+          <div class="festival-title">Diwali Dhamaka Sale</div>
+          <span class="festival-discount">Up to 80% OFF</span>
+        </div>
+      </div>
+      <div class="festival-card">
+        <div class="festival-bg" style="font-size:5rem;"><img src="./assets/images/holi.jpg" alt="Diwali Sale" style="width: 100%; height: 100%; object-fit: cover;"></div>
+        <div class="festival-overlay">
+          <div class="festival-label">Colors of Joy</div>
+          <div class="festival-title">Holi Special</div>
+          <span class="festival-discount">Up to 60% OFF</span>
+        </div>
+      </div>
+      <div class="festival-card">
+        <div class="festival-bg" style="font-size:5rem;"><img src="./assets/images/independence.jpg" alt="Diwali Sale" style="width: 100%; height: 100%; object-fit: cover;"></div>
+        <div class="festival-overlay">
+          <div class="festival-label">Jai Hind!</div>
+          <div class="festival-title">Independence Day Sale</div>
+          <span class="festival-discount">Up to 77% OFF</span>
+        </div>
+      </div>
+      <div class="festival-card">
+        <div class="festival-bg" style="font-size:5rem;"><img src="./assets/images/rakhi.jpg" alt="Diwali Sale" style="width: 100%; height: 100%; object-fit: cover;"></div>
+        <div class="festival-overlay">
+          <div class="festival-label">Bond of Love</div>
+          <div class="festival-title">Raksha Bandhan</div>
+          <span class="festival-discount">Up to 50% OFF</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="section">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">What India Says</div>
+      <h2 class="section-title">Customer Reviews</h2>
+      <p class="section-sub">Millions of happy shoppers trust BharatMart for genuine products and great service.</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="reviews-slider reveal">
+      <div class="reviews-track" id="reviews-track">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+    <div class="slider-controls" id="slider-dots"></div>
+  </div>
+</section>
+
+<!-- TRUST / NEWSLETTER -->
+<div class="trust-section">
+  <div class="trust-inner">
+    <h2 class="trust-title">🇮🇳 Made for Bharat</h2>
+    <p class="trust-sub">Subscribe for exclusive deals, new launches, and festival offers straight to your inbox.</p>
+    <div class="newsletter-form">
+      <input type="email" class="newsletter-input" placeholder="Enter your email address">
+      <button class="newsletter-btn" onclick="showToast('You\'re subscribed! 🎉','✅')">Subscribe</button>
+    </div>
+    <div class="trust-badges">
+      <div class="trust-badge"><span class="trust-badge-icon">🚚</span><span class="trust-badge-text">Free Delivery Above ₹499</span></div>
+      <div class="trust-badge"><span class="trust-badge-icon">↩️</span><span class="trust-badge-text">10-Day Easy Returns</span></div>
+      <div class="trust-badge"><span class="trust-badge-icon">🔒</span><span class="trust-badge-text">100% Secure Payments</span></div>
+      <div class="trust-badge"><span class="trust-badge-icon">✅</span><span class="trust-badge-text">Genuine Products Only</span></div>
+      <div class="trust-badge"><span class="trust-badge-icon">📞</span><span class="trust-badge-text">24/7 Customer Support</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">BharatMart</div>
+      <p class="footer-tagline">India's most trusted online marketplace. Quality products, guaranteed delivery, and prices that feel like home.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" title="Facebook">📘</a>
+        <a href="#" class="social-btn" title="Instagram">📸</a>
+        <a href="#" class="social-btn" title="Twitter">🐦</a>
+        <a href="#" class="social-btn" title="YouTube">▶️</a>
+        <a href="#" class="social-btn" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer-col-title">Company</h4>
+      <div class="footer-links">
+        <a href="#" class="footer-link">About Us</a>
+        <a href="#" class="footer-link">Careers</a>
+        <a href="#" class="footer-link">Press & Media</a>
+        <a href="#" class="footer-link">Investor Relations</a>
+        <a href="#" class="footer-link">Sustainability</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer-col-title">Customer Care</h4>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Help Center</a>
+        <a href="#" class="footer-link">Track My Order</a>
+        <a href="#" class="footer-link">Returns & Refunds</a>
+        <a href="#" class="footer-link">Shipping Info</a>
+        <a href="#" class="footer-link">Report a Product</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer-col-title">Legal</h4>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms of Service</a>
+        <a href="#" class="footer-link">Cookie Policy</a>
+        <a href="#" class="footer-link">Seller Program</a>
+        <a href="#" class="footer-link">Sitemap</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-text">© 2025 BharatMart. Made with ❤️ in India. All rights reserved.</div>
+    <div class="footer-badges">
+      <span class="payment-badge">UPI</span>
+      <span class="payment-badge">Net Banking</span>
+      <span class="payment-badge">Credit Card</span>
+      <span class="payment-badge">EMI</span>
+      <span class="payment-badge">Pay Later</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CART OVERLAY & PANEL -->
+<div id="cart-overlay" onclick="closeCart()"></div>
+<aside id="cart-panel">
+  <div class="cart-header">
+    <div class="cart-title">🛒 My Cart <span id="cart-count-text" style="color:var(--text-muted);font-size:0.85rem;font-weight:500;">(0 items)</span></div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer" id="cart-footer" style="display:none;">
+    <div class="cart-summary">
+      <div class="cart-row"><span>Subtotal</span><span id="cart-subtotal">₹0</span></div>
+      <div class="cart-row"><span>Delivery</span><span style="color:var(--accent);">FREE</span></div>
+      <div class="cart-row"><span>Discount</span><span style="color:var(--danger);" id="cart-discount">-₹0</span></div>
+      <div class="cart-row total"><span>Total</span><span id="cart-total">₹0</span></div>
+    </div>
+    <button class="btn-checkout" onclick="showToast('Proceeding to checkout! 🛒','🎉')">
+      Proceed to Checkout →
+    </button>
+  </div>
+</aside>
+
+<!-- QUICK VIEW MODAL -->
+<div id="qv-overlay" onclick="if(event.target===this)closeQuickView()">
+  <div id="qv-modal">
+    <button class="qv-close" onclick="closeQuickView()">✕</button>
+    <div class="qv-inner" id="qv-inner"></div>
+  </div>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
