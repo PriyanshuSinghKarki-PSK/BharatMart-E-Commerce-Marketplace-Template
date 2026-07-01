@@ -844,49 +844,82 @@ footer {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+/* Large Tablets & Small Laptops (Max Width: 1200px) */
 @media (max-width: 1200px) {
   .categories-grid { grid-template-columns: repeat(4, 1fr); }
   .products-grid { grid-template-columns: repeat(3, 1fr); }
   .flash-products { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; }
+  .hero-content { gap: 30px; padding: 40px 16px; }
 }
+
+/* Tablets - Portrait & Landscape (Max Width: 900px) */
 @media (max-width: 900px) {
-  .hero-content { grid-template-columns: 1fr; gap: 40px; }
+  .hero-content { grid-template-columns: 1fr; text-align: center; gap: 40px; }
   .hero-visual { display: none; }
+  .hero-search { margin: 0 auto 28px; }
+  .hero-btns { justify-content: center; }
+  .hero-stats { justify-content: center; }
   .hero { min-height: auto; padding-bottom: 60px; }
-  .nav-search { display: none; }
+  
+  .nav-search { display: none; } 
   .mobile-menu-btn { display: flex; }
   .cat-bar { display: none; }
+  
   .festival-grid { grid-template-columns: 1fr 1fr; }
   .festival-card:first-child { grid-column: span 2; }
   .review-card { min-width: calc(50% - 12px); }
-  .qv-inner { grid-template-columns: 1fr; }
-  .hero-stats { gap: 20px; }
+  
+  .qv-inner { grid-template-columns: 1fr; gap: 20px; }
+  .qv-img { padding: 16px; font-size: 5rem; max-height: 250px; }
 }
+
+/* Large Mobile Phones (Max Width: 768px) */
+@media (max-width: 768px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+  .footer-socials { justify-content: center; margin-top: 10px; }
+  .footer-badges { justify-content: center; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* Small Mobile Phones (Max Width: 640px) */
 @media (max-width: 640px) {
   :root { --nav-h: 60px; }
-  .section { padding: 56px 16px; }
+  .section { padding: 40px 16px; }
+  .section-title { font-size: 1.6rem; }
+  
   .categories-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
-  .cat-icon { width: 48px; height: 48px; font-size: 1.4rem; }
-  .cat-name { font-size: 0.7rem; }
-  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .flash-products { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .cat-icon { width: 44px; height: 44px; font-size: 1.2rem; }
+  .cat-name { font-size: 0.65rem; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .flash-products { grid-template-columns: repeat(1, 1fr); gap: 16px; }
+  
+  .hero-h1 { font-size: 1.8rem; }
+  .hero-btns { flex-direction: column; width: 100%; }
+  .btn-hero-primary, .btn-hero-secondary { text-align: center; width: 100%; padding: 14px; }
+  .hero-stats { flex-wrap: wrap; gap: 16px; justify-content: space-evenly; }
+  
   .festival-grid { grid-template-columns: 1fr; }
-  .festival-card:first-child { grid-column: span 1; }
-  .review-card { min-width: calc(100%); }
-  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
-  .hero-h1 { font-size: 1.9rem; }
-  .hero-btns { flex-direction: column; }
-  .btn-hero-primary, .btn-hero-secondary { text-align: center; padding: 13px 24px; }
+  .festival-card:first-child { grid-column: span 1; aspect-ratio: 4/3; }
+  .review-card { min-width: 100%; }
+  
   .countdown-num { font-size: 1.2rem; }
-  .countdown-unit { min-width: 52px; padding: 8px 10px; }
-  .hero-stats { flex-wrap: wrap; gap: 16px; }
+  .countdown-unit { min-width: 50px; padding: 6px; }
+  .flash-header { flex-direction: column; align-items: center; text-align: center; }
+  
   #cart-panel { width: 100vw; }
-  .trust-badges { gap: 20px; }
-  .flash-header { flex-direction: column; align-items: flex-start; }
-  .brands-track { flex-direction: column; overflow: hidden; height: 100px; }
-  .brands-slide { animation: none; flex-wrap: wrap; }
+  .trust-badges { flex-direction: column; gap: 20px; align-items: center; }
+  .newsletter-form { flex-direction: column; gap: 10px; background: transparent; box-shadow: none; }
+  .newsletter-input { border-radius: 12px; width: 100%; text-align: center; }
+  .newsletter-btn { border-radius: 12px; padding: 16px; width: 100%; }
+
+  .brands-track { gap: 12px; padding-bottom: 10px; }
+  .brand-card { min-width: 140px; padding: 16px; }
 }
+
+/* Desktop Only Enhancements */
 @media (min-width: 900px) {
   .nav-btn .label { display: block; }
 }
